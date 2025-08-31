@@ -4,41 +4,32 @@ import (
 	"log"
 	"os"
 
-	"github.com/spf13/viper"
+	"github.com/joho/godotenv"
 )
 
-type Config struct {
-	Port     string
-	DBHost   string
-	DBPort   string
-	DBUser   string
-	DBPass   string
-	DBName   string
-	LogPath  string
-}
-
-func Load() *Config {
-	viper.SetConfigFile(".env")
-	viper.AutomaticEnv()
-
-	if err := viper.ReadInConfig(); err != nil {
-		log.Println("No .env file found, using environment variables")
-	}
-
-	return &Config{
-		Port:    getEnv("PORT", "3000"),
-		DBHost:  getEnv("DB_HOST", "localhost"),
-		DBPort:  getEnv("DB_PORT", "5432"),
-		DBUser:  getEnv("DB_USER", "postgres"),
-		DBPass:  getEnv("DB_PASSWORD", "postgres"),
-		DBName:  getEnv("DB_NAME", "urlshortener_db"),
-		LogPath: getEnv("LOG_PATH", "logs"),
+func LoadEnv() {
+	if err := godotenv.Load(); err != nil {
+		log.Println("No .env file found, using system environment variables")
 	}
 }
 
-func getEnv(key, defaultValue string) string {
+func Get(key, defaultValue string) string {
 	if value := os.Getenv(key); value != "" {
 		return value
 	}
 	return defaultValue
+}
+
+// IsProduction memeriksa apakah environment adalah production
+func IsProduction() bool {
+	return Get("APP_ENV", "development") == "production"
+}
+
+// GetSSLMode mengembalikan mode SSL berdasarkan environment
+func GetSSLMode() string {
+	if IsProduction() {
+		return "require"
+	}
+	
+	return "disable"
 }

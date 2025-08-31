@@ -5,26 +5,43 @@ import (
 	"log"
 
 	"github.com/jmiryas/urlshortener/config"
-	"github.com/jmiryas/urlshortener/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 var DB *gorm.DB
 
-func InitDB(cfg *config.Config) {
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
-		cfg.DBHost, cfg.DBUser, cfg.DBPass, cfg.DBName, cfg.DBPort)
+func InitDB() {
+	// Build DSN dari environment variables
+	dsn := buildDSN()
 
 	var err error
-	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{
+		Logger: logger.Default.LogMode(getLogLevel()),
+	})
 	if err != nil {
 		log.Fatal("Failed to connect to database: ", err)
 	}
 
-	// Auto migrate
-	DB.AutoMigrate(&models.URL{})
-	
 	log.Println("Database connected successfully")
+}
+
+func buildDSN() string {
+	return fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s",
+		config.Get("DB_HOST", "localhost"),
+		config.Get("DB_USER", "postgres"),
+		config.Get("DB_PASSWORD", ""),
+		config.Get("DB_NAME", "urlshortener_db"),
+		config.Get("DB_PORT", "5432"),
+		config.GetSSLMode(), // Menggunakan fungsi dari config package
+	)
+}
+
+func getLogLevel() logger.LogLevel {
+	if config.IsProduction() {
+		return logger.Warn
+	}
+	return logger.Info
 }

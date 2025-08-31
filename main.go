@@ -9,19 +9,21 @@ import (
 )
 
 func main() {
-	// Load configuration
-	cfg := config.Load()
+	// Load environment variables
+	config.LoadEnv()
 
 	// Initialize database
-	storage.InitDB(cfg)
+	storage.InitDB()
 
 	// Setup routes
-	app := routes.SetupRoutes(cfg)
+	app := routes.SetupRoutes()
 
 	// Start server
-	log.Printf("Server starting on port %s", cfg.Port)
+	port := config.Get("PORT", "3000")
+	
+	storage.RunMigrations()
 
-	if err := app.Listen(":" + cfg.Port); err != nil {
-		log.Fatal(err)
-	}
+	log.Printf("Server starting on port %s", port)
+
+	log.Fatal(app.Listen(":" + port))
 }

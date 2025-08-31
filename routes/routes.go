@@ -2,28 +2,30 @@ package routes
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/jmiryas/urlshortener/config"
 	"github.com/jmiryas/urlshortener/handlers"
 	"github.com/jmiryas/urlshortener/middleware"
 )
 
-func SetupRoutes(cfg *config.Config) *fiber.App {
+func SetupRoutes() *fiber.App {
 	app := fiber.New()
 	
 	// Middleware
 	app.Use(middleware.Logger())
 	
-	// Routes
-	
-	app.Get("/", func (c *fiber.Ctx) error {
-		return c.JSON(fiber.Map{"message": "Hello!"})
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.Status(fiber.StatusOK).SendString("Hello!")
 	})
 
-	app.Post("/shorten", handlers.ShortenURL)
+	v1 := app.Group("/api/v1")
 
-	app.Get("/:token", handlers.RedirectURL)
+	v1.Post("/shorten", handlers.ShortenURL)
+	v1.Get("/:token", handlers.RedirectURL)
+	v1.Get("/stats/:token", handlers.GetStats)
 	
-	app.Get("/stats/:token", handlers.GetStats)
+	v1.Get("/analytics/:token", handlers.GetAnalytics)
+
+	v1.Post("/auth/register", handlers.Register)
+	v1.Post("/auth/login", handlers.Login)
 	
 	return app
 }
