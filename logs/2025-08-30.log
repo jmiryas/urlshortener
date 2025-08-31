@@ -1,0 +1,495 @@
+{
+  "body": null,
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/",
+  "time": "2025-08-30T18:51:44+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "message": "Hello!"
+  },
+  "duration": "1.1073ms",
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/",
+  "status": 200,
+  "time": "2025-08-30T18:51:44+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "https://chatgpt.com"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:54:55+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "original_url": "https://chatgpt.com",
+    "short_token": "6Zpokhgz"
+  },
+  "duration": "4.5175ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 200,
+  "time": "2025-08-30T18:54:55+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "https://chatgpt.com"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:55:24+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "original_url": "https://chatgpt.com",
+    "short_token": "6Zpokhgz"
+  },
+  "duration": "2.724ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 200,
+  "time": "2025-08-30T18:55:24+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "https://chatgpt.com"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:55:31+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "original_url": "https://chatgpt.com",
+    "short_token": "6Zpokhgz"
+  },
+  "duration": "2.3238ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 200,
+  "time": "2025-08-30T18:55:31+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": 123
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:55:41+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "Invalid JSON"
+  },
+  "duration": "1.9567ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 400,
+  "time": "2025-08-30T18:55:41+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "123"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:55:45+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "Invalid URL format"
+  },
+  "duration": "2.0311ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 422,
+  "time": "2025-08-30T18:55:45+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url2": "123"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:55:50+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "URL is required"
+  },
+  "duration": "752.9µs",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 400,
+  "time": "2025-08-30T18:55:50+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": true
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:55:57+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "Invalid JSON"
+  },
+  "duration": "1.8472ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 400,
+  "time": "2025-08-30T18:55:57+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "abc"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:56:02+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "Invalid URL format"
+  },
+  "duration": "4.7139ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 422,
+  "time": "2025-08-30T18:56:02+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "abc."
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:56:05+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "Invalid URL format"
+  },
+  "duration": "1.2132ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 422,
+  "time": "2025-08-30T18:56:05+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "abc.d"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:56:07+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "Invalid URL format"
+  },
+  "duration": "750.9µs",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 422,
+  "time": "2025-08-30T18:56:07+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "abc.do"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:56:10+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "Invalid URL format"
+  },
+  "duration": "475.1µs",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 422,
+  "time": "2025-08-30T18:56:10+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "abc.id"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:56:14+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "Invalid URL format"
+  },
+  "duration": "2.6997ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 422,
+  "time": "2025-08-30T18:56:14+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "https://www.usebruno.com/"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:56:26+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "original_url": "https://www.usebruno.com/",
+    "short_token": "ae5d5942"
+  },
+  "duration": "14.8943ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 201,
+  "time": "2025-08-30T18:56:26+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": {
+    "url": "https://www.usebruno.com/"
+  },
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "time": "2025-08-30T18:57:13+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "original_url": "https://www.usebruno.com/",
+    "short_token": "ae5d5942"
+  },
+  "duration": "5.1059ms",
+  "ip": "127.0.0.1",
+  "method": "POST",
+  "path": "/shorten",
+  "status": 200,
+  "time": "2025-08-30T18:57:13+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": null,
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/ae5d5942",
+  "time": "2025-08-30T18:59:43+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": null,
+  "duration": "11.6504ms",
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/ae5d5942",
+  "status": 302,
+  "time": "2025-08-30T18:59:43+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": null,
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/ae5d5942",
+  "time": "2025-08-30T18:59:57+07:00",
+  "type": "REQUEST",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:143.0) Gecko/20100101 Firefox/143.0"
+}
+{
+  "body": null,
+  "duration": "7.4224ms",
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/ae5d5942",
+  "status": 302,
+  "time": "2025-08-30T18:59:57+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": null,
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/6Zpokhgz",
+  "time": "2025-08-30T19:00:41+07:00",
+  "type": "REQUEST",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:143.0) Gecko/20100101 Firefox/143.0"
+}
+{
+  "body": null,
+  "duration": "5.6255ms",
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/6Zpokhgz",
+  "status": 302,
+  "time": "2025-08-30T19:00:41+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": null,
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/stats/ae5d5942",
+  "time": "2025-08-30T19:03:16+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "click_count": 2,
+    "created_at": "2025-08-30T18:56:26.620477+07:00",
+    "original_url": "https://www.usebruno.com/",
+    "short_token": "ae5d5942"
+  },
+  "duration": "5.6157ms",
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/stats/ae5d5942",
+  "status": 200,
+  "time": "2025-08-30T19:03:16+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": null,
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/stats/ae5d59422",
+  "time": "2025-08-30T19:03:20+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "URL not found"
+  },
+  "duration": "2.6575ms",
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/stats/ae5d59422",
+  "status": 404,
+  "time": "2025-08-30T19:03:20+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": null,
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/stats/",
+  "time": "2025-08-30T19:03:24+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "error": "URL not found"
+  },
+  "duration": "3.3756ms",
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/stats/",
+  "status": 404,
+  "time": "2025-08-30T19:03:24+07:00",
+  "type": "RESPONSE"
+}
+{
+  "body": null,
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/stats/6Zpokhgz",
+  "time": "2025-08-30T19:03:31+07:00",
+  "type": "REQUEST",
+  "user_agent": "bruno-runtime/2.10.0"
+}
+{
+  "body": {
+    "click_count": 1,
+    "created_at": "2025-08-30T07:32:00.777053+07:00",
+    "original_url": "https://chatgpt.com",
+    "short_token": "6Zpokhgz"
+  },
+  "duration": "2.6627ms",
+  "ip": "127.0.0.1",
+  "method": "GET",
+  "path": "/stats/6Zpokhgz",
+  "status": 200,
+  "time": "2025-08-30T19:03:31+07:00",
+  "type": "RESPONSE"
+}
