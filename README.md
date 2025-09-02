@@ -4,9 +4,9 @@ A RESTful URL shortener service built with Go, Fiber, GORM, and PostgreSQL that 
 
 ## Features
 
-- URL shortening with custom or auto-generated tokens
-- Redirect to original URLs with HTTP 302 responses
-- Click analytics tracking with timestamps
+- URL shortening with auto generated tokens
+- Redirect to original URLs
+- Click analytics tracking (unique visitors, referrer)
 - User authentication using JWT tokens
 - Idempotent token generation (same URL = same token)
 - Docker containerization for easy deployment
