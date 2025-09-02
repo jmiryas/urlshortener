@@ -32,7 +32,7 @@ func buildDSN() string {
 	return fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s",
 		config.Get("DB_HOST", "localhost"),
 		config.Get("DB_USER", "postgres"),
-		config.Get("DB_PASSWORD", ""),
+		config.Get("DB_PASSWORD", "postgres"),
 		config.Get("DB_NAME", "urlshortener_db"),
 		config.Get("DB_PORT", "5432"),
 		config.GetSSLMode(), // Menggunakan fungsi dari config package

@@ -23,7 +23,7 @@ func RedirectURL(c *fiber.Ctx) error {
 	referrer := c.Get("Referer")
 
 	// Gunakan transaction untuk memastikan konsistensi data
-	err := storage.DB.Transaction(func(tx *gorm.DB) error {
+	storage.DB.Transaction(func(tx *gorm.DB) error {
 		// 1. Update total click count
 		if err := tx.Model(&url).Update("click_count", url.ClickCount+1).Error; err != nil {
 			return err
@@ -58,11 +58,6 @@ func RedirectURL(c *fiber.Ctx) error {
 
 		return nil
 	})
-
-	if err != nil {
-		// Log error tetapi tetap redirect
-		// Di production, sebaiknya gunakan proper logging
-	}
 
 	return c.Redirect(url.OriginalURL, 302)
 }

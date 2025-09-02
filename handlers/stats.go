@@ -16,8 +16,8 @@ func GetStats(c *fiber.Ctx) error {
 	}
 
 	return c.JSON(fiber.Map{
-		"short_token":  url.ShortToken,
 		"original_url": url.OriginalURL,
+		"short_token":  url.ShortToken,
 		"click_count":  url.ClickCount,
 		"created_at":   url.CreatedAt,
 	})
