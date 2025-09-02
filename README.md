@@ -79,11 +79,11 @@ urlshortener/
 
    Response:
 
-   ```bash
+   ```json
    {
-   "token":"abc123",
-   "short_url":"http://localhost:3000/abc123",
-   "long_url":"https://example.com/very/long/url/path"
+     "token": "abc123",
+     "short_url": "http://localhost:3000/abc123",
+     "long_url": "https://example.com/very/long/url/path"
    }
    ```
 
@@ -121,12 +121,12 @@ urlshortener/
 
    Response:
 
-   ```bash
+   ```json
    {
-   "click_count":2,
-   "created_at":"2025-09-03T00:46:12.478646Z",
-   "original_url":"https://example.com/very/long/url/path",
-   "short_token":"abc123"
+     "click_count": 2,
+     "created_at": "2025-09-03T00:46:12.478646Z",
+     "original_url": "https://example.com/very/long/url/path",
+     "short_token": "abc123"
    }
    ```
 
@@ -144,21 +144,21 @@ urlshortener/
 
    Response:
 
-   ```bash
+   ```json
    {
-   "referrers": [
-    {
-      "referrer": "http://localhost:5000/",
-      "count": 9
-    }
-   ],
-   "total_clicks": 11,
-   "unique_visitors": 1,
-   "url": {
-    "click_count": 11,
-    "original_url": "http://example.com/",
-    "short_token": "abc123"
-   }
+     "referrers": [
+       {
+         "referrer": "http://localhost:5000/",
+         "count": 9
+       }
+     ],
+     "total_clicks": 11,
+     "unique_visitors": 1,
+     "url": {
+       "click_count": 11,
+       "original_url": "http://example.com/",
+       "short_token": "abc123"
+     }
    }
    ```
 
@@ -177,14 +177,14 @@ urlshortener/
 
    Response:
 
-   ```bash
+   ```json
    {
-    "message":"User created successfully",
-    "user":{
-        "id":1,
-        "name":"Budi",
-        "username":"budi"
-    }
+     "message": "User created successfully",
+     "user": {
+       "id": 1,
+       "name": "Budi",
+       "username": "budi"
+     }
    }
    ```
 
@@ -202,13 +202,13 @@ urlshortener/
 
    Response:
 
-   ```bash
+   ```json
    {
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-    "user":{
-        "id":1,
-        "username":"budi"
-    }
+     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+     "user": {
+       "id": 1,
+       "username": "budi"
+     }
    }
    ```
 
