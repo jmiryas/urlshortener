@@ -14,7 +14,6 @@ import (
 var DB *gorm.DB
 
 func InitDB() {
-	// Build DSN dari environment variables
 	dsn := buildDSN()
 
 	var err error
@@ -35,7 +34,7 @@ func buildDSN() string {
 		config.Get("DB_PASSWORD", "postgres"),
 		config.Get("DB_NAME", "urlshortener_db"),
 		config.Get("DB_PORT", "5432"),
-		config.GetSSLMode(), // Menggunakan fungsi dari config package
+		config.GetSSLMode(),
 	)
 }
 

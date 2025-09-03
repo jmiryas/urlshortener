@@ -16,7 +16,6 @@ func SetupRoutes() *fiber.App {
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 	
-	// Middleware
 	app.Use(middleware.Logger())
 	
 	app.Get("/", func(c *fiber.Ctx) error {

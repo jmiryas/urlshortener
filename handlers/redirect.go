@@ -17,33 +17,27 @@ func RedirectURL(c *fiber.Ctx) error {
 		return c.Status(404).JSON(fiber.Map{"error": "URL not found"})
 	}
 
-	// Dapatkan informasi pengunjung
 	ipAddress := c.IP()
 	userAgent := c.Get("User-Agent")
 	referrer := c.Get("Referer")
 
-	// Gunakan transaction untuk memastikan konsistensi data
 	storage.DB.Transaction(func(tx *gorm.DB) error {
-		// 1. Update total click count
 		if err := tx.Model(&url).Update("click_count", url.ClickCount+1).Error; err != nil {
 			return err
 		}
 
-		// 2. Cek apakah pengunjung sudah ada dalam 24 jam terakhir
 		var existingVisit models.Visit
 		oneDayAgo := time.Now().Add(-24 * time.Hour)
 		
 		result := tx.Where("url_id = ? AND ip_address = ? AND created_at > ?", 
 			url.ID, ipAddress, oneDayAgo).First(&existingVisit)
 
-		// 3. Jika pengunjung baru (dalam 24 jam), update unique_visits
 		if result.Error != nil {
 			if err := tx.Model(&url).Update("unique_visits", url.UniqueVisits+1).Error; err != nil {
 				return err
 			}
 		}
 
-		// 4. Simpan data visit
 		visit := models.Visit{
 			URLID:      url.ID,
 			IPAddress:  ipAddress,

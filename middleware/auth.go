@@ -11,6 +11,7 @@ import (
 
 func Protected(c *fiber.Ctx) error {
 	tokenString := c.Get("Authorization")
+	
 	if tokenString == "" {
 		return c.Status(401).JSON(fiber.Map{"error": "Authorization header required"})
 	}
@@ -18,7 +19,7 @@ func Protected(c *fiber.Ctx) error {
 	tokenString = strings.TrimPrefix(tokenString, "Bearer ")
 
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-		return config.Get("JWT_SECRET", "SALINGJAGA"), nil // Use config.Get("JWT_SECRET") in production
+		return config.Get("JWT_SECRET", "SALINGJAGA"), nil
 	})
 
 	if err != nil || !token.Valid {

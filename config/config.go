@@ -20,12 +20,10 @@ func Get(key, defaultValue string) string {
 	return defaultValue
 }
 
-// IsProduction memeriksa apakah environment adalah production
 func IsProduction() bool {
 	return Get("APP_ENV", "development") == "production"
 }
 
-// GetSSLMode mengembalikan mode SSL berdasarkan environment
 func GetSSLMode() string {
 	if IsProduction() {
 		return "require"

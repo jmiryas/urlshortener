@@ -5,6 +5,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v4"
+	"github.com/jmiryas/urlshortener/config"
 	"github.com/jmiryas/urlshortener/models"
 	"github.com/jmiryas/urlshortener/storage"
 	"golang.org/x/crypto/bcrypt"
@@ -31,19 +32,16 @@ func Register(c *fiber.Ctx) error {
 		return c.Status(400).JSON(fiber.Map{"error": "Name, username and password are required"})
 	}
 
-	// Check if user exists
 	var existingUser models.User
 	if result := storage.DB.Where("username = ?", req.Username).First(&existingUser); result.Error == nil {
 		return c.Status(400).JSON(fiber.Map{"error": "Username already exists"})
 	}
 
-	// Hash password
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
 	if err != nil {
 		return c.Status(500).JSON(fiber.Map{"error": "Could not hash password"})
 	}
 
-	// Create user
 	user := models.User{
 		Name: req.Name,
 		Username: req.Username,
@@ -74,25 +72,22 @@ func Login(c *fiber.Ctx) error {
 		return c.Status(400).JSON(fiber.Map{"error": "Username and password are required"})
 	}
 
-	// Find user
 	var user models.User
 	if result := storage.DB.Where("username = ?", req.Username).First(&user); result.Error != nil {
 		return c.Status(401).JSON(fiber.Map{"error": "Invalid credentials"})
 	}
 
-	// Check password
 	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)); err != nil {
 		return c.Status(401).JSON(fiber.Map{"error": "Invalid credentials"})
 	}
 
-	// Create JWT token
 	token := jwt.New(jwt.SigningMethodHS256)
 	claims := token.Claims.(jwt.MapClaims)
 	claims["user_id"] = user.ID
 	claims["username"] = user.Username
 	claims["exp"] = time.Now().Add(time.Hour * 72).Unix()
 
-	t, err := token.SignedString([]byte("secret")) // Use config.Get("JWT_SECRET") in production
+	t, err := token.SignedString([]byte(config.Get("JWT_SECRET", "SALINGJAGA")))
 	if err != nil {
 		return c.Status(500).JSON(fiber.Map{"error": "Could not generate token"})
 	}

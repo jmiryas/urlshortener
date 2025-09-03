@@ -241,19 +241,17 @@ urlshortener/
    go mod download
    ```
 
-1. Set up database:
-
-   ```bash
-   # Start PostgreSQL (if using Docker)
-   docker-compose up -d db
-
-   # Run migrations
-   go run storage/migrate.go
-   ```
-
 1. Start the server:
 
    ```bash
+   # if using docker
+
+   docker-compose build --no-cache app
+
+   docker-compose up
+
+   # without docker
+
    go run main.go
    ```
 
@@ -262,6 +260,10 @@ urlshortener/
 1. Build and start all containers:
 
    ```bash
+   docker-compose down
+
+   docker-compose build --no-cache app
+
    docker-compose up --build
    ```
 
